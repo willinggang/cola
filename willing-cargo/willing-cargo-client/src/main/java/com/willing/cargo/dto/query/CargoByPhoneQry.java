@@ -1,4 +1,4 @@
-package com.willing.cargo.dto;
+package com.willing.cargo.dto.query;
 
 import com.alibaba.cola.dto.Query;
 import lombok.Data;
@@ -10,7 +10,7 @@ import lombok.Data;
  * @date 2022/7/317:31
  */
 @Data
-public class CargoListByPhoneQuery extends Query {
+public class CargoByPhoneQry extends Query {
     /**
      * 手机号码
      */

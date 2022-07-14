@@ -2,7 +2,7 @@ package com.willing.cargo.cargo;
 
 import com.alibaba.cola.dto.MultiResponse;
 import com.willing.cargo.api.CargoServiceI;
-import com.willing.cargo.dto.CargoListByPhoneQuery;
+import com.willing.cargo.dto.query.CargoByPhoneQry;
 import com.willing.cargo.dto.data.CargoDTO;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class CargoServiceImpl implements CargoServiceI {
 
     @Override
-    public MultiResponse<CargoDTO> listCargos(CargoListByPhoneQuery query) {
+    public MultiResponse<CargoDTO> listCargos(CargoByPhoneQry query) {
         return null;
     }
 }

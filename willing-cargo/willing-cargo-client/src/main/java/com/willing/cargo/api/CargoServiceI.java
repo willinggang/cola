@@ -1,7 +1,7 @@
 package com.willing.cargo.api;
 
 import com.alibaba.cola.dto.MultiResponse;
-import com.willing.cargo.dto.CargoListByPhoneQuery;
+import com.willing.cargo.dto.query.CargoByPhoneQry;
 import com.willing.cargo.dto.data.CargoDTO;
 
 /**
@@ -17,5 +17,5 @@ public interface CargoServiceI {
      * @param query
      * @return
      */
-    MultiResponse<CargoDTO> listCargos(CargoListByPhoneQuery query);
+    MultiResponse<CargoDTO> listCargos(CargoByPhoneQry query);
 }
