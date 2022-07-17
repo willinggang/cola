@@ -118,7 +118,6 @@ public class WillingBeanUtils {
      */
     private static <S, T> BeanCopier getCacheBeanCopier(Class<S> source, Class<T> target, boolean useConverter) {
         ConcurrentHashMap<Class<?>, BeanCopier> copierConcurrentHashMap = cache.computeIfAbsent(source, aClass -> new ConcurrentHashMap<>(16));
-
         return copierConcurrentHashMap.computeIfAbsent(target, aClass -> BeanCopier.create(source, target, useConverter));
     }
 
