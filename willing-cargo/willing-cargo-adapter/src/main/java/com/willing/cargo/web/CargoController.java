@@ -20,6 +20,6 @@ public class CargoController {
 
     @RequestMapping(name = "list",method = RequestMethod.POST)
     public MultiResponse<CargoDTO> queryCargos(@RequestParam(value = "phone",required = false)String phone){
-
+return null;
     }
 }

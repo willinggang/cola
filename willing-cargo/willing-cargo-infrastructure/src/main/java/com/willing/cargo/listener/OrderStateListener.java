@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
  * @Description:
  * @date 2022/7/2322:51
  */
-@Component
-@WithStateMachine(id = "orderStateMachineId")
+//@Component
+//@WithStateMachine(id = "orderStateMachineId")
 public class OrderStateListener {
 
     @OnTransition(source = "",target = "")

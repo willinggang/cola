@@ -23,11 +23,13 @@ import java.util.stream.Collectors;
  **/
 public class WillingBeanUtils {
     private static final Logger logger = LoggerFactory.getLogger(WillingBeanUtils.class);
-    private static ThreadLocal<ObjenesisStd> objenesisStdThreadLocal = ThreadLocal.withInitial(ObjenesisStd::new);
+        private static ThreadLocal<ObjenesisStd> objenesisStdThreadLocal = ThreadLocal.withInitial(ObjenesisStd::new);
+//    private static  ObjenesisStd objenesisStd= new ObjenesisStd(true);;
     /**
      * 默认缓存
      */
     private static ConcurrentHashMap<Class<?>, ConcurrentHashMap<Class<?>, BeanCopier>> cache = new ConcurrentHashMap<>();
+
 
     public static <T> List<T> copyList(List<?> sources, Class<T> target) {
         if (sources.isEmpty()) {
@@ -96,12 +98,12 @@ public class WillingBeanUtils {
     }
 
 
-    public static <T> T mapToBean(Map<?, ?> source, Class<T> target) {
+   /* public static <T> T mapToBean(Map<?, ?> source, Class<T> target) {
         T bean = objenesisStdThreadLocal.get().newInstance(target);
         BeanMap beanMap = BeanMap.create(bean);
         beanMap.putAll(source);
         return bean;
-    }
+    }*/
 
     public static <T> Map<?, ?> beanToMap(T source) {
         return BeanMap.create(source);
@@ -133,9 +135,11 @@ public class WillingBeanUtils {
      */
     private static <S, T> Converter adaptConvert(Object source, Class<T> target) {
         Collection<BaseConvert> convAdapters = SpringContextUtil.getApplicationContext().getBeansOfType(BaseConvert.class).values();
-        for (BaseConvert convert : convAdapters) {
-            if (convert.suport(source.getClass(), target)) {
-                return convert;
+        if (!CollectionUtils.isEmpty(convAdapters)) {
+            for (BaseConvert convert : convAdapters) {
+                if (convert.suport(source.getClass(), target)) {
+                    return convert;
+                }
             }
         }
         return (Converter) SpringContextUtil.getBean("defaultConvert");

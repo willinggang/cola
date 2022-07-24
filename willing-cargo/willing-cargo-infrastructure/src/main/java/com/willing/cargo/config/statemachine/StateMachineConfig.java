@@ -21,8 +21,8 @@ import java.util.EnumSet;
  * @Description:
  * @date 2022/7/2321:34
  */
-@Configuration
-@EnableStateMachineFactory(name = "orderStateMachineFactory")
+//@Configuration
+//@EnableStateMachineFactory(name = "orderStateMachineFactory")
 public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<OrderStatus, OrderStatusChangeEvent> {
 
 
