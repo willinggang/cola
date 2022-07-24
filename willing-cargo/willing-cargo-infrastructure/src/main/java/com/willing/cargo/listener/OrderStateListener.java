@@ -18,7 +18,6 @@ import org.springframework.stereotype.Component;
 @WithStateMachine(id = "orderStateMachineId")
 public class OrderStateListener {
 
-
     @OnTransition(source = "",target = "")
     @OnTransitionEnd
     @OnTransitionStart
